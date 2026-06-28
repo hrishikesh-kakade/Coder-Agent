@@ -1,0 +1,284 @@
+/*
+  Global CSS Reset & Base Typography
+  ---------------------------------
+  This stylesheet provides a clean slate for the project. It defines a set of
+  CSS custom properties (variables) for colors, fonts, and spacing that can be
+  reused throughout the site. It also applies a simple reset and establishes the
+  base typographic styles for the `body` element.
+*/
+
+/* ---------------------------------------------------------------
+   :root – Custom Properties
+   --------------------------------------------------------------- */
+:root {
+  /* Primary color palette */
+  --color-primary: #0066cc;   /* A strong blue used for links, buttons, etc. */
+  --color-primary-dark: #004999; /* Darker shade for hover/focus states */
+  --color-bg: #ffffff;       /* Page background */
+  --color-text: #333333;     /* Default text color */
+  --color-light: #f9f9f9;    /* Light background for sections */
+  --color-footer-bg: #222222;/* Footer background */
+
+  /* Font families */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-mono: "Courier New", Courier, monospace;
+
+  /* Spacing scale – based on the root font size (1rem) */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+}
+
+/* ---------------------------------------------------------------
+   Reset – Box sizing & margin/padding reset
+   --------------------------------------------------------------- */
+/* Apply a more intuitive box model and remove default spacing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default link styling – we’ll style links explicitly */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------------------------------------------------------------
+   Base Typography
+   --------------------------------------------------------------- */
+html {
+  /* Ensure consistent scaling across browsers */
+  font-size: 100%; /* 16px default */
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  /* Use the spacing scale for default body padding if needed */
+  /* padding: var(--spacing-md); */
+}
+
+/* Headings – simple typographic scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary-dark);
+}
+
+h1 { font-size: 2.488rem; }
+ h2 { font-size: 2.074rem; }
+ h3 { font-size: 1.728rem; }
+ h4 { font-size: 1.44rem; }
+ h5 { font-size: 1.2rem; }
+ h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+/* ---------------------------------------------------------------
+   Utility – Visually hidden (for accessibility)
+   --------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------
+   Header & Navigation
+   --------------------------------------------------------------- */
+header {
+  background-color: var(--color-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end; /* placeholder – items will align right when added */
+  gap: var(--spacing-lg);
+}
+
+/* ---------------------------------------------------------------
+   Hero Section
+   --------------------------------------------------------------- */
+#hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-light);
+}
+
+.hero-image {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  display: block;
+}
+
+#hero h1 {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: var(--spacing-lg);
+  margin: 0;
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* ---------------------------------------------------------------
+   Biography Section
+   --------------------------------------------------------------- */
+#bio {
+  max-width: 800px;
+  margin: var(--spacing-xxl) auto;
+  padding: 0 var(--spacing-md);
+  background-color: var(--color-light);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+}
+
+/* ---------------------------------------------------------------
+   Statistics Overview
+   --------------------------------------------------------------- */
+#stats {
+  max-width: 1000px;
+  margin: var(--spacing-xxl) auto;
+  padding: 0 var(--spacing-md);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.stat-item {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: var(--spacing-lg);
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.stat-item:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-4px);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ---------------------------------------------------------------
+   Social Links Section
+   --------------------------------------------------------------- */
+#social {
+  max-width: 600px;
+  margin: var(--spacing-xxl) auto;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.social-links a {
+  font-size: 2rem;
+  color: var(--color-primary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: var(--color-primary-dark);
+  transform: scale(1.1);
+}
+
+/* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+footer {
+  background-color: var(--color-footer-bg);
+  color: #fff;
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin-top: var(--spacing-xxl);
+}
+
+/* ---------------------------------------------------------------
+   Responsive Adjustments
+   --------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  /* Hero */
+  .hero-image {
+    height: 40vh;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+    left: var(--spacing-sm);
+    bottom: var(--spacing-sm);
+  }
+
+  /* Sections padding */
+  #bio,
+  #stats,
+  #social {
+    margin: var(--spacing-xxl) var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
